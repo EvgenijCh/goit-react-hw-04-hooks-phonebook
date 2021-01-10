@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-// import { v4 as uuid } from "uuid";
 import PropTypes from 'prop-types'
 import s from './ContactForm.module.css'
 
@@ -28,7 +27,10 @@ export default function ContactForm({ onSubmit, onCheckUnique }) {
     const isValidatedForm = validatedForm();
     if (!isValidatedForm) return;
     onSubmit(name, number);
-  }
+
+    setName('');
+    setNumber('');
+  };
 
   const validatedForm = () => {
     if (!name || !number) {
